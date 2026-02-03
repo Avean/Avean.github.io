@@ -33,6 +33,7 @@ function injectHeader() {
             </div>
             <div class="header-text">
                 <h1>XIV Forum of Partial Differential Equations</h1>
+                <p>Institute of Mathematics of Polish Academy of Sciences,</p>
                 <p>Poland, 13 - 19 September 2026</p>
             </div>
         </div>
