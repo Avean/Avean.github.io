@@ -28,8 +28,8 @@ function injectHeader() {
     <header class="header-banner">
         <div class="header-container">
             <div class="logos">
-                <img src="logo-impan.png" alt="IMPAN Logo">
-                <img src="banachcenter.jpg" alt="Banach Center" class="logo-banach">
+                    <img src="logo-impan.png" alt="IMPAN Logo" style="height: clamp(70px, 11vw, 100px); width: auto;">
+                    <img src="banachcenter.jpg" alt="Banach Center" style="height: clamp(70px, 11vw, 110px); width: auto;">
             </div>
             <div class="header-text">
                 <h1>XIV Forum of Partial Differential Equations</h1>
