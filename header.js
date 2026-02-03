@@ -5,7 +5,7 @@ const navLinks = [
     { name: "Participants", url: "participants.html" },
     { name: "Programme & Abstracts", url: "program.html" },
     { name: "Scientific Committee", url: "scientific.html" },
-    { name: "Organizing Committee", url: "organizing.html" }
+    { name: "Organizing Committee", url: "organization.html" }
 ];
 
 function injectHeader() {
