@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration | XIV Forum on PDE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #1E3A8A;
+            --navbar-bg: rgba(30, 41, 59, 0.98);
+            --light-gray: #f5f7f9;
+        }
+
+        body { margin: 0; padding: 0; font-family: 'Lato', sans-serif; background-color: #fcfcfc; color: #1f2937; }
+
+        /* --- NAVBAR --- */
+        .navbar {
+            position: fixed; top: 0; width: 100%; background-color: var(--navbar-bg);
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 12px 40px; box-sizing: border-box; z-index: 1000;
+        }
+        .nav-logo { display: flex; align-items: center; color: white; text-decoration: none; font-weight: 700; font-size: 18px; }
+        .nav-logo img { height: 35px; background: white; padding: 3px; border-radius: 4px; margin-right: 12px; }
+        .nav-links { display: flex; gap: 20px; }
+        .nav-links a { color: #cbd5e1; text-decoration: none; font-size: 14px; transition: 0.3s; }
+        .nav-links a:hover { color: white; }
+
+        /* --- BANNER NAGŁÓWKA (Zgodnie ze zdjęciem) --- */
+        .header-banner {
+            margin-top: 60px; /* miejsce pod navbarem */
+            background: #fff;
+            padding: 40px 20px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: left;
+        }
+        .header-container {
+            max-width: 1100px; width: 100%;
+            display: flex; align-items: center; justify-content: space-between; gap: 30px;
+        }
+        .logos { display: flex; align-items: center; gap: 20px; }
+        .logos img { height: clamp(60px, 10vw, 120px); }
+        .header-text { text-align: right; }
+        .header-text h1 { font-size: clamp(20px, 2.5vw, 28px); color: #1E3A8A; margin: 0; font-weight: 900; }
+        .header-text p { font-size: clamp(14px, 1.5vw, 18px); margin: 5px 0 0 0; color: #4b5563; }
+
+        /* --- TWOJE STYLE DLA TREŚCI --- */
+        .responsive-container {
+            max-width: 900px;
+            margin: 40px auto;
+            font-size: clamp(17px, 1.4vw, 20px);
+            line-height: 1.6;
+            padding: 0 20px 60px;
+        }
+
+        .main-box {
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 18px;
+            padding: clamp(15px, 3vw, 40px);
+            background: white;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+
+        /* REAKCJA NA WIDOK MOBILNY */
+        @media (max-width: 768px) {
+            .navbar { padding: 10px 20px; }
+            .nav-links { display: none; } /* Opcjonalnie: ukrycie linków na mobile lub menu hamburger */
+            .header-container { flex-direction: column; text-align: center; }
+            .header-text { text-align: center; }
+            .responsive-container { margin-top: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-logo">
+            <img src="logo-impan.png" alt="IMPAN">
+            XIV FPDE
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home page</a>
+            <a href="registration.html" style="color: white; font-weight: bold;">Registration</a>
+            <a href="#">Participants</a>
+            <a href="#">Programme & Abstracts</a>
+            <a href="#">Scientific Committee</a>
+            <a href="#">Organizing Committee</a>
+        </div>
+    </nav>
+
+    <header class="header-banner">
+        <div class="header-container">
+            <div class="logos">
+                <img src="logo-impan.png" alt="IMPAN Logo">
+                <img src="https://www.impan.pl/images/bc-logo.png" alt="Banach Center"> </div>
+            <div class="header-text">
+                <h1>XIV Forum of Partial Differential Equations</h1>
+                <p>Institute of Mathematics of Polish Academy of Sciences,</p>
+                <p>Poland, 13 - 19 September 2026</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="responsive-container">
+        <div class="main-box">
+
+            <div style="margin-bottom:18px;">
+                <div style="font-weight:800;color:#111827;margin-bottom:6px;">Registration fee</div>
+                <ul style="margin:6px 0 0 18px;">
+                    <li><strong>Regular fee:</strong> 2200 PLN <span style="color:#4b5563;">(520 EUR)</span></li>
+                    <li>
+                        <strong>Reduced fee:</strong> 1600 PLN <span style="color:#4b5563;">(380 EUR)</span>
+                        <span style="color:#4b5563;">— limited number of places</span>
+                    </li>
+                </ul>
+                <div style="margin-top:12px;color:#4b5563; font-size: 0.95em;">
+                    Invited speakers are exempt from the conference fee. Reduced fees are intended for early-career researchers from smaller academic centres.
+                    The number of reduced-fee places is limited; interested participants are encouraged to register early.
+                </div>
+            </div>
+
+            <div style="margin-bottom:18px;">
+                <div style="font-weight:800;color:#111827;margin-bottom:6px;">Deadline</div>
+                <div>Deadline for registration: <strong>TBA</strong></div>
+            </div>
+
+            <div style="margin-bottom:22px;">
+                <div style="font-weight:800;color:#111827;margin-bottom:6px;">Payment details</div>
+                <div style="margin-top:6px;"><strong>Account holder:</strong><br/>Ośrodek Badawczo-Konferencyjny IMPAN w Będlewie</div>
+                <div style="margin-top:8px;"><strong>Bank:</strong><br/>Bank Gospodarstwa Krajowego<br/>Al. Jerozolimskie 7<br/>00-955 Warszawa, Poland</div>
+                <div style="margin-top:8px;"><strong>IBAN (EUR):</strong><br/><span style="word-break: break-all; font-family: monospace; background: #f1f5f9; padding: 2px 5px;">PL 80 1130 1017 0020 1467 1520 0008</span></div>
+                <div style="margin-top:6px;"><strong>IBAN (PLN):</strong><br/><span style="word-break: break-all; font-family: monospace; background: #f1f5f9; padding: 2px 5px;">PL 48 1130 1017 0020 1467 1520 0002</span></div>
+                <div style="margin-top:6px;"><strong>BIC / SWIFT:</strong> GOSKPLPW</div>
+                <div style="margin-top:8px;"><strong>Transfer description:</strong><br/>FORUM PDE + name of the participant</div>
+            </div>
+
+            <div style="margin-bottom:26px;color:#374151; font-size: 0.95em;">
+                In justified cases and subject to availability of funds, it is possible to apply for financial support for participation in the conference. 
+                Applications will be handled individually. Interested participants should contact the organisers directly at 
+                <a href="mailto:xivforum@impan.pl" style="color:#1E3A8A;text-decoration:none;border-bottom:1px solid rgba(30,58,138,.45);">xivforum@impan.pl</a>.
+            </div>
+
+            <div style="text-align:center;">
+                <a href="https://tally.so/r/rjPv5v" target="_blank" rel="noopener"
+                   style="display:inline-block; width: 100%; max-width:280px; box-sizing: border-box; padding:18px 32px; font-size:20px; font-weight:800; color:#ffffff; background:#1E3A8A; border-radius:15px; text-decoration:none; transition: 0.2s;">
+                    Go to Registration Form
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
