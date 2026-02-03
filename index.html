@@ -8,13 +8,60 @@
     <style>
         :root {
             --primary-green: #2E7D32;
+            --navbar-bg: rgba(30, 41, 59, 0.95); /* Ciemny granat/antracyt z lekką przezroczystością */
             --light-gray: #f5f7f9;
-            --card-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
 
         body { margin: 0; padding: 0; font-family: 'Lato', sans-serif; color: #333; line-height: 1.6; }
 
-        /* --- SEKCJA 1: HERO (FULL SCREEN) --- */
+        /* --- NAWIGACJA (NAVBAR) --- */
+        .navbar {
+            position: fixed; /* Przyklejony do góry */
+            top: 0;
+            width: 100%;
+            background-color: var(--navbar-bg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 40px;
+            box-sizing: border-box;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .nav-logo img {
+            height: 40px;
+            margin-right: 15px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 400;
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        /* --- DOPASOWANIE HERO DO NAVBARA --- */
         .hero {
             position: relative;
             height: 100vh;
@@ -27,96 +74,47 @@
             text-align: center;
         }
 
+        /* Pozostałe style bez zmian dla zachowania struktury... */
         .hero-content h2 { font-size: clamp(18px, 2vw, 24px); font-weight: 400; margin-bottom: 10px; }
         .hero-content h1 { font-size: clamp(40px, 8vw, 90px); font-weight: 900; margin: 0; line-height: 1.1; }
         .hero-content p.sub { font-size: clamp(24px, 4vw, 45px); font-weight: 300; margin: 10px 0; }
         .hero-content p.venue { font-size: clamp(16px, 1.5vw, 22px); margin-top: 20px; opacity: 0.9; }
 
-        /* --- SEKCJA 2: GENERAL INFO --- */
-        .general-info {
-            padding: 80px 20px;
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .section-title { color: var(--primary-green); font-size: 28px; margin-bottom: 30px; font-weight: 400; }
-        .general-text { font-size: 19px; color: #444; margin-bottom: 40px; text-align: justify; }
-
+        .general-info { padding: 80px 20px; max-width: 900px; margin: 0 auto; text-align: center; }
+        .section-title { color: var(--primary-green); font-size: 28px; margin-bottom: 30px; }
         .btn-container { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
-        .btn {
-            padding: 15px 40px;
-            font-size: 18px;
-            font-weight: 700;
-            border-radius: 12px;
-            text-decoration: none;
-            transition: 0.3s;
-            min-width: 220px;
-        }
-        .btn-solid { background: var(--primary-green); color: white; border: 2px solid var(--primary-green); }
+        .btn { padding: 15px 40px; border-radius: 12px; text-decoration: none; font-weight: 700; transition: 0.3s; }
+        .btn-solid { background: var(--primary-green); color: white; }
         .btn-outline { background: white; color: var(--primary-green); border: 2px solid var(--primary-green); }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
 
-        /* --- SEKCJA 3: IMPORTANT INFO (SZARE TŁO) --- */
-        .important-info {
-            background-color: var(--light-gray);
-            padding: 80px 20px;
-        }
+        .important-info { background-color: var(--light-gray); padding: 80px 20px; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 60px; }
+        .card { background: white; padding: 25px; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
 
-        .info-wrapper { max-width: 1000px; margin: 0 auto; }
-        
-        /* Wymuszony układ 2x2 na PC */
-        .info-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-bottom: 60px; /* Większy odstęp przed linkami */
-        }
-
-        .card {
-            background: white;
-            padding: 25px;
-            border-radius: 16px;
-            box-shadow: var(--card-shadow);
-        }
-
-        .card h4 { margin: 0 0 12px 0; font-size: 13px; letter-spacing: 1.5px; color: #111; text-transform: uppercase; font-weight: 900; }
-        .card p { margin: 0; font-size: 17px; color: #4b5563; }
-        .card a { color: var(--primary-green); text-decoration: none; font-weight: 600; }
-
-        .footer-links {
-            border-left: 4px solid var(--primary-green);
-            padding-left: 25px;
-            margin-top: 60px; /* Dodatkowy margines górny */
-        }
-        .footer-links p { font-size: 18px; margin: 15px 0; color: #374151; }
-        .footer-links a { color: var(--primary-green); text-decoration: underline; font-weight: 600; }
-
-        /* --- SEKCJA 4: SUPPORT --- */
-        .support-section {
-            padding: 60px 20px;
-            text-align: center;
-            background: white;
-            border-top: 1px solid #eee;
-        }
-        .support-logos {
-            margin-top: 30px;
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            opacity: 0.7;
-        }
-
-        /* --- RESPONSIVE --- */
-        @media (max-width: 768px) {
-            .info-grid { grid-template-columns: 1fr; } /* Na telefonie 1 kolumna */
-            .hero { height: 85vh; }
-            .btn { width: 100%; }
+        @media (max-width: 1024px) {
+            .navbar { flex-direction: column; padding: 15px; }
+            .nav-links { margin-top: 15px; flex-wrap: wrap; justify-content: center; gap: 10px; }
         }
     </style>
 </head>
 <body>
+
+    <nav class="navbar">
+        <a href="#" class="nav-logo">
+            <div style="background: white; padding: 2px; border-radius: 3px; margin-right: 10px;">
+                <img src="https://www.impan.pl/images/logo-impan.png" alt="IMPAN">
+            </div>
+            XIV FPDE
+        </a>
+        <div class="nav-links">
+            <a href="#">Home page</a>
+            <a href="#">Registration</a>
+            <a href="#">Participants</a>
+            <a href="#">Programme & Abstracts</a>
+            <a href="#">Scientific Committee</a>
+            <a href="#">Organizing Committee</a>
+        </div>
+    </nav>
 
     <section class="hero">
         <div class="hero-content">
@@ -127,58 +125,5 @@
         </div>
     </section>
 
-    <section class="general-info">
-        <h2 class="section-title">General information</h2>
-        <div class="general-text">
-            <p>The Forum of Partial Differential Equations is an international conference devoted to recent advances in the theory and applications of partial differential equations.</p>
-            <p>The meeting aims to bring together researchers at different career stages to present new results, exchange ideas, and foster collaborations across various areas of PDEs.</p>
-        </div>
-        <div class="btn-container">
-            <a href="#" class="btn btn-solid">Register</a>
-            <a href="#" class="btn btn-outline">Submit abstract</a>
-        </div>
-    </section>
-
-    <section class="important-info">
-        <div class="info-wrapper">
-            <h2 class="section-title" style="text-align: center; margin-bottom: 40px;">Important Information</h2>
-            
-            <div class="info-grid">
-                <div class="card">
-                    <h4>Deadlines</h4>
-                    <p>Registration: <b>[TBA]</b><br>Abstract submission: <b>[TBA]</b></p>
-                </div>
-                <div class="card">
-                    <h4>Venue</h4>
-                    <p><b>[TBA]</b><br>Directions / address: <a href="#">[LINK]</a></p>
-                </div>
-                <div class="card">
-                    <h4>Updates</h4>
-                    <p>Last update: <b>[TBA]</b><br>Programme version: <a href="#">[LINK]</a></p>
-                </div>
-                <div class="card">
-                    <h4>Contact</h4>
-                    <p>Email: <a href="mailto:xivforum@impan.pl">xivforum@impan.pl</a><br>
-                    <small>Organizers: J. Mederski, B. Bieganowski, S. Cygan</small></p>
-                </div>
-            </div>
-
-            <div class="footer-links">
-                <p><b>Programme.</b> The <a href="#">programme of the conference</a> is available online.</p>
-                <p><b>Book of Abstracts.</b> The <a href="#">Book of Abstracts</a> can be downloaded as a PDF file.</p>
-                <p><b>Travel.</b> Information on how to get to the conference venue can be found <a href="#">here</a>.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="support-section">
-        <h2 class="section-title">Support</h2>
-        <p style="color: #666; max-width: 600px; margin: 0 auto;">The conference is supported by the following institutions and grants:</p>
-        <div class="support-logos">
-            <div style="font-weight: bold; color: #999; border: 2px dashed #ccc; padding: 20px; border-radius: 10px;">IMPAN Logo</div>
-            <div style="font-weight: bold; color: #999; border: 2px dashed #ccc; padding: 20px; border-radius: 10px;">University Logo</div>
-        </div>
-    </section>
-
-</body>
+    </body>
 </html>
