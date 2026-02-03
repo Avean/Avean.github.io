@@ -29,7 +29,7 @@ function injectHeader() {
         <div class="header-container">
             <div class="logos">
                 <img src="logo-impan.png" alt="IMPAN Logo">
-                <img src="https://www.impan.pl/images/bc-logo.png" alt="Banach Center" class="logo-banach">
+                <img src="banachcenter.jpg" alt="Banach Center" class="logo-banach">
             </div>
             <div class="header-text">
                 <h1>XIV Forum of Partial Differential Equations</h1>
