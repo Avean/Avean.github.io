@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Committee | XIV Forum on PDE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #1E3A8A;
+            --navbar-bg: rgba(30, 41, 59, 0.98);
+        }
+
+        body { margin: 0; padding: 0; font-family: 'Lato', sans-serif; background-color: #fcfcfc; color: #1f2937; }
+
+        /* --- NAVBAR --- */
+        .navbar { position: fixed; top: 0; width: 100%; background-color: var(--navbar-bg); display: flex; justify-content: space-between; align-items: center; padding: 12px 40px; box-sizing: border-box; z-index: 1000; }
+        .nav-logo { display: flex; align-items: center; color: white; text-decoration: none; font-weight: 700; font-size: 18px; }
+        .nav-logo img { height: 35px; background: white; padding: 3px; border-radius: 4px; margin-right: 12px; }
+        .nav-links { display: flex; gap: 20px; }
+        .nav-links a { color: #cbd5e1; text-decoration: none; font-size: 14px; transition: 0.3s; }
+        .nav-links a:hover { color: white; }
+
+        /* --- HEADER --- */
+        .header-banner { margin-top: 60px; background: #fff; padding: 40px 20px; border-bottom: 1px solid #eee; display: flex; justify-content: center; align-items: center; }
+        .header-container { max-width: 1100px; width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+        .logos { display: flex; align-items: center; gap: 20px; }
+        .logos img { height: clamp(60px, 10vw, 110px); }
+        .header-text { text-align: right; }
+        .header-text h1 { font-size: clamp(20px, 2.5vw, 28px); color: var(--primary-blue); margin: 0; font-weight: 900; }
+        .header-text p { font-size: clamp(14px, 1.5vw, 18px); margin: 5px 0 0 0; color: #4b5563; }
+
+        /* --- CONTENT WRAPPER --- */
+        .main-content {
+            max-width: 900px;
+            margin: 40px auto 80px;
+            padding: 0 20px;
+        }
+
+        .committee-title {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--primary-blue);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        /* --- RESPONSIVE FIX FOR YOUR BOXES --- */
+        @media (max-width: 600px) {
+            .navbar { padding: 10px 20px; }
+            .nav-links { display: none; }
+            .header-container { flex-direction: column; text-align: center; }
+            .header-text { text-align: center; }
+            
+            /* Twoje boksy - zmiana na pionowe przy małym ekranie */
+            .person-box { flex-direction: column; align-items: flex-start !important; }
+            .person-link { margin-top: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-logo">
+            <img src="logo-impan.png" alt="IMPAN">
+            XIV FPDE
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home page</a>
+            <a href="registration.html">Registration</a>
+            <a href="participants.html">Participants</a>
+            <a href="programme.html">Programme & Abstracts</a>
+            <a href="scientific-committee.html" style="color: white; font-weight: bold;">Scientific Committee</a>
+            <a href="organizing-committee.html">Organizing Committee</a>
+        </div>
+    </nav>
+
+    <header class="header-banner">
+        <div class="header-container">
+            <div class="logos">
+                <img src="logo-impan.png" alt="IMPAN Logo">
+                <img src="https://www.impan.pl/images/bc-logo.png" alt="Banach Center">
+            </div>
+            <div class="header-text">
+                <h1>XIV Forum of Partial Differential Equations</h1>
+                <p>Poland, 13 - 19 September 2026</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-content">
+        <h2 class="committee-title">Scientific Committee</h2>
+
+        <div style="font-family:'Lato', sans-serif; color:#1f2937; font-size:clamp(18px, 1.4vw, 20px); line-height:1.65;">
+            <div style="border:1px solid rgba(0,0,0,0.08); border-radius:18px; padding:18px; background:rgba(255,255,255,0.65); box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+
+                <div class="person-box" style="display:flex; align-items:flex-start; justify-content:space-between; gap:14px; padding:14px; border:1px solid rgba(0,0,0,0.07); border-radius:16px; background:rgba(255,255,255,0.70); margin-bottom:12px;">
+                  <div>
+                    <div style="font-weight:800;color:#111827;">Krzysztof Bogdan</div>
+                    <div style="color:#4b5563;font-size:0.95em;">Wrocław University of Science and Technology</div>
+                  </div>
+                  <div class="person-link" style="white-space:nowrap;">
+                    <a href="https://wmat.pwr.edu.pl/pracownicy/krzysztof-bogdan" target="_blank" rel="noopener" style="color:#1E3A8A;text-decoration:none;border-bottom:1px solid rgba(30,58,138,.45);font-weight:700;">Website</a>
+                  </div>
+                </div>
+
+                <div class="person-box" style="display:flex; align-items:flex-start; justify-content:space-between; gap:14px; padding:14px; border:1px solid rgba(0,0,0,0.07); border-radius:16px; background:rgba(255,255,255,0.70); margin-bottom:12px;">
+                  <div>
+                    <div style="font-weight:800;color:#111827;">Aleksander Ćwiszewski</div>
+                    <div style="color:#4b5563;font-size:0.95em;">Nicolaus Copernicus University in Toruń</div>
+                  </div>
+                  <div class="person-link" style="white-space:nowrap;">
+                    <a href="https://www.mat.umk.pl/knam/pracownicy/?id=7100700" target="_blank" rel="noopener" style="color:#1E3A8A;text-decoration:none;border-bottom:1px solid rgba(30,58,138,.45);font-weight:700;">Website</a>
+                  </div>
+                </div>
+
+                <div class="person-box" style="display:flex; align-items:flex-start; justify-content:space-between; gap:14px; padding:14px; border:1px solid rgba(0,0,0,0.07); border-radius:16px; background:rgba(255,255,255,0.70); margin-bottom:12px;">
+                  <div>
+                    <div style="font-weight:800;color:#111827;">Piotr Gwiazda</div>
+                    <div style="color:#4b5563;font-size:0.95em;">Polish Academy of Sciences (IMPAN)</div>
+                  </div>
+                  <div class="person-link" style="white-space:nowrap;">
+                    <a href="https://www.impan.pl/en/institute/scientific-staff" target="_blank" rel="noopener" style="color:#1E3A8A;text-decoration:none;border-bottom:1px solid rgba(30,58,138,.45);font-weight:700;">Website</a>
+                  </div>
+                </div>
+
+                <div class="person-box" style="display:flex; align-items:flex-start; justify-content:space-between; gap:14px; padding:14px; border:1px solid rgba(0,0,0,0.07); border-radius:16px; background:rgba(255,255,255,0.70); margin-bottom:12px;">
+                  <div>
+                    <div style="font-weight:800;color:#111827;">Tomasz Jakubowski</div>
+                    <div style="color:#4b5563;font-size:0.95em;">Wrocław University of Science and Technology</div>
+                  </div>
+                  <div class="person-link" style="white-space:nowrap;">
+                    <a href="https://prac.im.pwr.edu.pl/~jakubow/" target="_blank" rel="noopener" style="color:#1E3A8A;text-decoration:none;border-bottom:1px solid rgba(30,58,138,.45);font-weight:700;">Website</a>
+                  </div>
+                </div>
+
+                <div class="person-box" style="display:flex; align-items:flex-start; justify-content:space-between; gap:14px; padding:14px; border:1px solid rgba(0,0,0,0.07); border-radius:16px; background:rgba(255,255,255,0.70); margin-bottom:12px;">
+                  <div>
+                    <div style="font-weight:800;color:#111827;">Joanna Janczewska</div>
+                    <div style="color:#4b5563;font-size:0.95em;">Gdańsk University of Technology</div>
+                  </div>
+                  <div class="person-link" style="white-space:nowrap;">
+                    <a href="https://pg.edu.pl/en/p/joanna-janczewska-19734" target="_blank" rel="noopener" style="color:#1E3A8A;text-decoration:none;border-bottom:1px solid rgba(30,58,138,.45);font-weight:700;">Website</a>
+                  </div>
+                </div>
+
+                <div class="person-box" style="display:flex; align-items:flex-start; justify-content:space-between; gap:14px; padding:14px; border:1px solid rgba(0,0,0,0.07); border-radius:16px; background:rgba(255,255,255,0.70); margin-bottom:12px;">
+                  <div>
+                    <div style="font-weight:800;color:#111827;">Grzegorz Karch</div>
+                    <div style="color:#4b5563;font-size:0.95em;">University of Wrocław</div>
+                  </div>
+                  <div class="person-link" style="white-space:nowrap;">
+                    <a href="https://karch.math.uni.wroc.pl/" target="_blank" rel="noopener" style="color:#1E3A8A;text-decoration:none;border-bottom:1px solid rgba(30,58,138,.45);font-weight:700;">Website</a>
+                  </div>
+                </div>
+
+                <div class="person-box" style="display:flex; align-items:flex-start; justify-content:space-between; gap:14px; padding:14px; border:1px solid rgba(0,0,0,0.07); border-radius:16px; background:rgba(255,255,255,0.70); margin-bottom:12px;">
+                  <div>
+                    <div style="font-weight:800;color:#111827;">Karolina Kropielnicka</div>
+                    <div style="color:#4b5563;font-size:0.95em;">Polish Academy of Sciences (IM PAN)</div>
+                  </div>
+                  <div class="person-link" style="white-space:nowrap;">
+                    <a href="https://mat.ug.edu.pl/~kmalina/" target="_blank" rel="noopener" style="color:#1E3A8A;text-decoration:none;border-bottom:1px solid rgba(30,58,138,.45);font-weight:700;">Website</a>
+                  </div>
+                </div>
+
+                <div class="person-box" style="display:flex; align-items:flex-start; justify-content:space-between; gap:14px; padding:14px; border:1px solid rgba(0,0,0,0.07); border-radius:16px; background:rgba(255,255,255,0.70); margin-bottom:12px;">
+                  <div>
+                    <div style="font-weight:800;color:#111827;">Wojciech Kryszewski</div>
+                    <div style="color:#4b5563;font-size:0.95em;">Lodz University of Technology</div>
+                  </div>
+                  <div class="person-link" style="white-space:nowrap;">
+                    <a href="https://im.p.lodz.pl/en/WojciechKryszewski" target="_blank" rel="noopener" style="color:#1E3A8A;text-decoration:none;border-bottom:1px solid rgba(30,58,138,.45);font-weight:700;">Website</a>
+                  </div>
+                </div>
+
+                <div class="person-box" style="display:flex; align-items:flex-start; justify-content:space-between; gap:14px; padding:14px; border:1px solid rgba(0,0,0,0.07); border-radius:16px; background:rgba(255,255,255,0.70); margin-bottom:12px;">
+                  <div>
+                    <div style="font-weight:800;color:#111827;">Błażej Miasojedow</div>
+                    <div style="color:#4b5563;font-size:0.95em;">University of Warsaw</div>
+                  </div>
+                  <div class="person-link" style="white-space:nowrap;">
+                    <a href="https://www.mimuw.edu.pl/~bmia/" target="_blank" rel="noopener" style="color:#1E3A8A;text-decoration:none;border-bottom:1px solid rgba(30,58,138,.45);font-weight:700;">Website</a>
+                  </div>
+                </div>
+
+                <div class="person-box" style="display:flex; align-items:flex-start; justify-content:space-between; gap:14px; padding:14px; border:1px solid rgba(0,0,0,0.07); border-radius:16px; background:rgba(255,255,255,0.70); margin-bottom:12px;">
+                  <div>
+                    <div style="font-weight:800;color:#111827;">Piotr Mucha</div>
+                    <div style="color:#4b5563;font-size:0.95em;">University of Warsaw</div>
+                  </div>
+                  <div class="person-link" style="white-space:nowrap;">
+                    <a href="https://www.mimuw.edu.pl/~pbmucha/" target="_blank" rel="noopener" style="color:#1E3A8A;text-decoration:none;border-bottom:1px solid rgba(30,58,138,.45);font-weight:700;">Website</a>
+                  </div>
+                </div>
+
+                <div class="person-box" style="display:flex; align-items:flex-start; justify-content:space-between; gap:14px; padding:14px; border:1px solid rgba(0,0,0,0.07); border-radius:16px; background:rgba(255,255,255,0.70);">
+                  <div>
+                    <div style="font-weight:800;color:#111827;">Piotr Zgliczyński</div>
+                    <div style="color:#4b5563;font-size:0.95em;">Jagiellonian University</div>
+                  </div>
+                  <div class="person-link" style="white-space:nowrap;">
+                    <a href="https://ww2.ii.uj.edu.pl/~zgliczyn/" target="_blank" rel="noopener" style="color:#1E3A8A;text-decoration:none;border-bottom:1px solid rgba(30,58,138,.45);font-weight:700;">Website</a>
+                  </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
