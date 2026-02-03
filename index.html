@@ -5,256 +5,169 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>XIV Forum on PDE | Będlewo 2026</title>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="header.js" defer></script>
     <style>
         :root {
-            --primary-green: #2E7D32;
-            --navbar-bg: rgba(30, 41, 59, 0.98); /* Ciemny antracyt */
-            --light-gray: #f5f7f9;
+            --primary-blue: #1E3A8A; /* Zgodny z resztą zakładek */
+            --light-gray: #f8fafc;
         }
 
-        /* Reset i globalne ustawienia */
         html, body {
             margin: 0;
             padding: 0;
             width: 100%;
-            overflow-x: hidden; /* Zapobiega scrollowaniu na boki */
+            overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
-        body {
-            font-family: 'Lato', sans-serif;
-            color: #333;
-            line-height: 1.6;
-            background-color: white;
-        }
-
-        /* --- NAWIGACJA (NAVBAR) --- */
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background-color: var(--navbar-bg);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 40px;
-            box-sizing: border-box;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            color: white;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 18px;
-        }
-
-        .nav-logo img {
-            height: 35px;
-            background: white;
-            padding: 3px;
-            border-radius: 4px;
-            margin-right: 12px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 20px;
-        }
-
-        .nav-links a {
-            color: #cbd5e1;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 400;
-            transition: 0.3s;
-            white-space: nowrap;
-        }
-
-        .nav-links a:hover {
-            color: white;
-        }
-
-        /* --- SEKCJA 1: HERO (ZDJĘCIE) --- */
+        /* --- SEKCJA HERO --- */
         .hero {
             position: relative;
-            min-height: 100vh; /* Zapewnia min. pełny ekran, ale pozwala przewijać */
-            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), 
+            min-height: 100vh;
+            background: linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.65)), 
                         url('image_d2cb7a.jpg') no-repeat center center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             text-align: center;
-            padding-top: 60px; /* Miejsce na navbar */
+            padding-top: 60px;
             box-sizing: border-box;
         }
 
-        .hero-content h2 { font-size: clamp(18px, 2vw, 24px); font-weight: 400; margin-bottom: 10px; }
+        .hero-content h2 { font-size: clamp(18px, 2vw, 24px); font-weight: 400; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; }
         .hero-content h1 { font-size: clamp(40px, 8vw, 90px); font-weight: 900; margin: 0; line-height: 1.1; }
         .hero-content p.sub { font-size: clamp(24px, 4vw, 45px); font-weight: 300; margin: 10px 0; }
-        .hero-content p.venue { font-size: clamp(16px, 1.5vw, 22px); margin-top: 20px; opacity: 0.9; }
+        .hero-content p.venue { font-size: clamp(16px, 1.5vw, 22px); margin-top: 20px; opacity: 0.9; font-weight: 700; }
 
-        /* --- SEKCJA 2: GENERAL INFO --- */
-        .general-info {
-            padding: 100px 20px;
-            max-width: 950px;
-            margin: 0 auto;
+        /* --- LAYOUT SEKCJI --- */
+        .section-padding { padding: 100px 20px; }
+        .home-section-title { 
+            color: var(--primary-blue); 
+            font-size: 32px; 
+            margin-bottom: 40px; 
+            font-weight: 900; 
             text-align: center;
         }
 
-        .section-title { color: var(--primary-green); font-size: 32px; margin-bottom: 40px; font-weight: 400; }
-        .general-text { font-size: 20px; color: #444; margin-bottom: 50px; text-align: justify; }
+        .general-text { font-size: 19px; color: #4b5563; max-width: 900px; margin: 0 auto 50px; text-align: justify; }
 
+        /* --- PRZYCISKI --- */
         .btn-container { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
-        .btn {
-            padding: 16px 45px;
-            font-size: 18px;
+        .btn-home {
+            padding: 16px 40px;
+            font-size: 17px;
             font-weight: 700;
             border-radius: 12px;
             text-decoration: none;
             transition: 0.3s;
-            min-width: 220px;
+            min-width: 200px;
+            text-align: center;
         }
-        .btn-solid { background: var(--primary-green); color: white; border: 2px solid var(--primary-green); }
-        .btn-outline { background: white; color: var(--primary-green); border: 2px solid var(--primary-green); }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .btn-blue { background: var(--primary-blue); color: white; border: 2px solid var(--primary-blue); }
+        .btn-blue-outline { background: transparent; color: var(--primary-blue); border: 2px solid var(--primary-blue); }
+        .btn-home:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(30, 58, 138, 0.2); }
 
-        /* --- SEKCJA 3: IMPORTANT INFO (SZARY BLOK) --- */
-        .important-info {
-            background-color: var(--light-gray);
-            padding: 100px 20px;
-        }
-
-        .info-wrapper { max-width: 1050px; margin: 0 auto; }
-        
+        /* --- KARTY INFORMACYJNE --- */
+        .important-info { background-color: var(--light-gray); }
         .info-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr; /* Stały układ 2x2 na PC */
+            grid-template-columns: 1fr 1fr;
             gap: 25px;
-            margin-bottom: 80px;
+            max-width: 1050px;
+            margin: 0 auto 60px;
         }
 
-        .card {
+        .info-card {
             background: white;
             padding: 35px;
             border-radius: 18px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
         }
 
-        .card h4 { margin: 0 0 15px 0; font-size: 13px; letter-spacing: 2px; color: #111; text-transform: uppercase; font-weight: 900; }
-        .card p { margin: 0; font-size: 18px; color: #4b5563; }
-        .card a { color: var(--primary-green); text-decoration: none; font-weight: 600; }
+        .info-card h4 { margin: 0 0 15px 0; font-size: 13px; letter-spacing: 2px; color: var(--primary-blue); text-transform: uppercase; font-weight: 900; }
+        .info-card p { margin: 0; font-size: 17px; color: #374151; }
+        .info-card a { color: var(--primary-blue); text-decoration: none; font-weight: 700; border-bottom: 1px solid rgba(30, 58, 138, 0.3); }
 
-        .footer-links {
-            border-left: 5px solid var(--primary-green);
+        /* --- FOOTER LINKS --- */
+        .footer-links-block {
+            max-width: 1050px;
+            margin: 0 auto;
+            border-left: 5px solid var(--primary-blue);
             padding-left: 30px;
-            margin-top: 40px;
         }
-        .footer-links p { font-size: 19px; margin: 18px 0; color: #374151; }
-        .footer-links a { color: var(--primary-green); text-decoration: underline; font-weight: 600; }
+        .footer-links-block p { font-size: 18px; margin: 15px 0; color: #374151; }
+        .footer-links-block a { color: var(--primary-blue); text-decoration: none; font-weight: 700; }
 
-        /* --- SEKCJA 4: SUPPORT --- */
-        .support-section {
-            padding: 80px 20px;
-            text-align: center;
-            background: white;
-            border-top: 1px solid #eee;
-        }
-
-        /* RWD - Telefon */
-        @media (max-width: 1024px) {
-            .navbar { flex-direction: column; padding: 15px; }
-            .nav-links { margin-top: 15px; flex-wrap: wrap; justify-content: center; gap: 10px; }
-            .info-grid { grid-template-columns: 1fr; } /* Jedna kolumna na mobile */
-            .hero { padding-top: 120px; }
+        @media (max-width: 800px) {
+            .info-grid { grid-template-columns: 1fr; }
+            .hero-content h1 { font-size: 50px; }
         }
     </style>
 </head>
 <body>
 
-    <nav class="navbar">
-        <a href="#" class="nav-logo">
-            <img src="logo-impan.png" alt="IMPAN Logo">
-            XIV FPDE
-        </a>
-        <div class="nav-links">
-            <a href="#">Home page</a>
-            <a href="registration.html">Registration</a>
-            <a href="participants.html">Participants</a>
-            <a href="program.html">Programme & Abstracts</a>
-            <a href="scientific.html">Scientific Committee</a>
-            <a href="organization.html">Organizing Committee</a>
-        </div>
-    </nav>
+    <div id="header-placeholder"></div>
 
     <section class="hero">
         <div class="hero-content">
             <h2>13 – 19 September 2026</h2>
             <h1>XIV Forum</h1>
             <p class="sub">of Partial Differential Equations</p>
-            <p class="venue">Będlewo Conference Center</p>
+            <p class="venue">Będlewo Conference Center, Poland</p>
         </div>
     </section>
 
-    <section class="general-info">
-        <h2 class="section-title">General information</h2>
+    <section class="section-padding">
+        <h2 class="home-section-title">General Information</h2>
         <div class="general-text">
             <p>The Forum of Partial Differential Equations is an international conference devoted to recent advances in the theory and applications of partial differential equations.</p>
-            <p>The meeting aims to bring together researchers at different career stages to present new results, exchange ideas, and foster collaborations across various areas of PDEs.</p>
+            <p>The meeting aims to bring together researchers at different career stages to present new results, exchange ideas, and foster collaborations across various areas of PDEs. It continues the long-standing tradition of Polish PDE meetings held in Będlewo.</p>
         </div>
         <div class="btn-container">
-            <a href="#" class="btn btn-solid">Register</a>
-            <a href="#" class="btn btn-outline">Submit abstract</a>
+            <a href="registration.html" class="btn-home btn-blue">Register Now</a>
+            <a href="mailto:xivforum@impan.pl" class="btn-home btn-blue-outline">Submit Abstract</a>
         </div>
     </section>
 
-    <section class="important-info">
-        <div class="info-wrapper">
-            <h2 class="section-title" style="text-align: center;">Important Information</h2>
-            
-            <div class="info-grid">
-                <div class="card">
-                    <h4>Deadlines</h4>
-                    <p>Registration: <b>[TBA]</b><br>Abstract submission: <b>[TBA]</b></p>
-                </div>
-                <div class="card">
-                    <h4>Venue</h4>
-                    <p><b>[TBA]</b><br>Directions / address: <a href="#">[LINK]</a></p>
-                </div>
-                <div class="card">
-                    <h4>Updates</h4>
-                    <p>Last update: <b>[TBA]</b><br>Programme version: <a href="#">[LINK]</a></p>
-                </div>
-                <div class="card">
-                    <h4>Contact</h4>
-                    <p>Email: <a href="mailto:xivforum@impan.pl">xivforum@impan.pl</a><br>
-                    <small style="color: #888;">Organizers: J. Mederski, B. Bieganowski, S. Cygan</small></p>
-                </div>
+    <section class="important-info section-padding">
+        <div class="info-grid">
+            <div class="info-card">
+                <h4>Deadlines</h4>
+                <p>Registration: <b>[TBA]</b><br>Abstract submission: <b>[TBA]</b></p>
             </div>
+            <div class="info-card">
+                <h4>Venue</h4>
+                <p><b>Będlewo Conference Center</b><br>Address: <a href="https://www.impan.pl/en/centres/bedlewo/location" target="_blank">View map</a></p>
+            </div>
+            <div class="info-card">
+                <h4>Updates</h4>
+                <p>Last update: <b>February 2026</b><br>Programme version: <a href="programme.html">Draft available</a></p>
+            </div>
+            <div class="info-card">
+                <h4>Contact</h4>
+                <p>Email: <a href="mailto:xivforum@impan.pl">xivforum@impan.pl</a><br>
+                <small style="color: #64748b; display: block; margin-top: 5px;">Organizers: J. Mederski, B. Bieganowski, S. Cygan</small></p>
+            </div>
+        </div>
 
-            <div class="footer-links">
-                <p><b>Programme.</b> The <a href="#">programme of the conference</a> is available online.</p>
-                <p><b>Book of Abstracts.</b> The <a href="#">Book of Abstracts</a> can be downloaded as a PDF file.</p>
-                <p><b>Travel.</b> Information on how to get to the conference venue can be found <a href="#">here</a>.</p>
-            </div>
+        <div class="footer-links-block">
+            <p><b>Programme.</b> The <a href="programme.html">programme of the conference</a> is available online.</p>
+            <p><b>Book of Abstracts.</b> The Book of Abstracts can be downloaded as a PDF file [TBA].</p>
+            <p><b>Travel.</b> Information on how to get to the conference venue can be found <a href="registration.html">here</a>.</p>
         </div>
     </section>
 
-    <section class="support-section">
-        <h2 class="section-title">Support</h2>
-        <p style="color: #666; max-width: 600px; margin: 0 auto 30px;">The conference is supported by the following institutions and grants:</p>
-        <div style="font-weight: bold; color: #ccc; border: 2px dashed #eee; padding: 40px; display: inline-block; border-radius: 15px;">
-            [LOGO PLACER]
+    <section class="section-padding" style="text-align: center; background: white;">
+        <h2 class="home-section-title">Support</h2>
+        <p style="color: #64748b; max-width: 600px; margin: 0 auto 40px;">The conference is supported by the following institutions:</p>
+        <div style="display: flex; justify-content: center; gap: 40px; align-items: center; flex-wrap: wrap; opacity: 0.8;">
+             <img src="logo-impan.png" alt="IMPAN" style="height: 80px;">
+             <img src="banachcenter.jpg" alt="Banach Center" style="height: 80px;">
         </div>
     </section>
 
 </body>
 </html>
-
-
-
-
