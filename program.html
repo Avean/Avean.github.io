@@ -14,7 +14,7 @@
 
         body { margin: 0; padding: 0; font-family: 'Lato', sans-serif; background-color: #fcfcfc; color: #1f2937; }
 
-        /* --- NAVBAR & HEADER (Bez zmian) --- */
+        /* --- NAVBAR --- */
         .navbar { position: fixed; top: 0; width: 100%; background-color: var(--navbar-bg); display: flex; justify-content: space-between; align-items: center; padding: 12px 40px; box-sizing: border-box; z-index: 1000; }
         .nav-logo { display: flex; align-items: center; color: white; text-decoration: none; font-weight: 700; font-size: 18px; }
         .nav-logo img { height: 35px; background: white; padding: 3px; border-radius: 4px; margin-right: 12px; }
@@ -22,6 +22,7 @@
         .nav-links a { color: #cbd5e1; text-decoration: none; font-size: 14px; transition: 0.3s; }
         .nav-links a:hover { color: white; }
 
+        /* --- HEADER --- */
         .header-banner { margin-top: 60px; background: #fff; padding: 40px 20px; border-bottom: 1px solid #eee; display: flex; justify-content: center; align-items: center; }
         .header-container { max-width: 1100px; width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 30px; }
         .logos { display: flex; align-items: center; gap: 20px; }
@@ -32,38 +33,51 @@
 
         .separator { max-width: 900px; margin: 40px auto; border: 0; height: 1px; background: linear-gradient(to right, transparent, rgba(0,0,0,0.1), transparent); }
 
-        /* --- STYLIZACJA PRZYCISKU --- */
+        /* --- SUBMIT BTN --- */
         #fpde-stage { width: 100%; overflow: hidden; margin-top: 40px; }
-        #fpde-inner { width: 520px; margin: 0 auto; transform-origin: top center; text-align:center; font-size: 20px; line-height:1.65; }
+        #fpde-inner { width: 520px; margin: 0 auto; transform-origin: top center; text-align:center; font-size: 20px; }
         #fpde-btn { display:inline-flex; align-items:center; justify-content:center; width: 420px; max-width: 100%; padding: 18px 28px; font-size: 24px; font-weight: 800; color: var(--primary-blue); border-radius: 18px; text-decoration: none; box-shadow: 0 0 0 2px var(--primary-blue) inset; }
-        #fpde-deadline { margin-bottom:14px; color:#4b5563; }
 
-        /* --- TABELA DESKTOP --- */
-        .fpde-table-wrap { width: 100%; border-radius: 14px; display: block; }
-        .google-visualization-table-table { border-collapse: separate !important; width: 100% !important; border-radius: 14px !important; overflow: hidden !important; table-layout: fixed !important; }
+        /* --- DESKTOP TABLE SPECIFICS --- */
+        .fpde-table-wrap { width: 100%; border-radius: 14px; display: block; overflow-x: auto; }
+        .google-visualization-table-table { border-collapse: separate !important; width: 100% !important; border-radius: 14px !important; table-layout: fixed !important; }
         .fpde-header { background: linear-gradient(90deg, #1E3A8A, #2b76b8) !important; }
         .fpde-header-cell { color: white !important; font-weight: 800 !important; padding: 12px !important; text-align: center !important; }
-        .fpde-cell { padding: 12px 8px !important; border-bottom: 1px solid rgba(0,0,0,0.06) !important; vertical-align: middle !important; text-align: center !important; word-wrap: break-word !important; white-space: normal !important; }
-        .google-visualization-table-table td:first-child { width: 100px !important; background-color: rgba(30,58,138,0.05); font-weight: bold; color: var(--primary-blue); }
+        .fpde-cell { padding: 12px 8px !important; border-bottom: 1px solid rgba(0,0,0,0.06) !important; vertical-align: middle !important; text-align: center !important; word-wrap: break-word !important; }
+        
+        /* SZEROKOŚĆ GODZIN NA PC */
+        .google-visualization-table-table td:first-child, 
+        .google-visualization-table-table th:first-child { 
+            width: 115px !important; 
+            background-color: rgba(30,58,138,0.05);
+            font-weight: bold;
+            color: var(--primary-blue);
+        }
 
-        /* --- WIDOK MOBILNY (LISTA) --- */
+        /* --- MOBILE LIST --- */
         #mobile-list-container { display: none; }
 
         @media (max-width: 768px) {
             .navbar { padding: 10px 20px; } .nav-links { display: none; }
             .header-container { flex-direction: column; text-align: center; }
             .header-text { text-align: center; }
-            
-            .fpde-table-wrap { display: none; } /* Ukrywamy tabelę na mobile */
-            #mobile-list-container { display: block; } /* Pokazujemy listę */
+            .fpde-table-wrap { display: none; }
+            #mobile-list-container { display: block; }
 
             .day-section { margin-bottom: 30px; }
-            .day-title { background: var(--primary-blue); color: white; padding: 10px 15px; border-radius: 8px; font-weight: 800; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+            .day-title { background: var(--primary-blue); color: white; padding: 10px 15px; border-radius: 8px; font-weight: 800; margin-bottom: 10px; text-transform: uppercase; }
             .slot-row { display: flex; border-bottom: 1px solid #eee; padding: 12px 0; gap: 15px; align-items: flex-start; }
-            .slot-time { flex: 0 0 80px; font-weight: 700; color: var(--primary-blue); font-size: 14px; }
+            
+            /* SZEROKOŚĆ GODZIN NA MOBILE */
+            .slot-time { 
+                flex: 0 0 105px; 
+                font-weight: 700; 
+                color: var(--primary-blue); 
+                font-size: 14px; 
+                white-space: nowrap; 
+            }
             .slot-content { flex: 1; font-size: 15px; line-height: 1.4; }
-            .slot-content strong { color: #111; display: block; margin-bottom: 2px; }
-            .slot-title-text { color: #6b7280; font-size: 13px; font-style: italic; }
+            .slot-title-text { color: #6b7280; font-size: 13px; font-style: italic; display: block; margin-top: 4px; }
         }
     </style>
 </head>
@@ -94,7 +108,7 @@
 
     <div id="fpde-stage">
         <div id="fpde-inner">
-            <div id="fpde-deadline">Deadline for abstract submission: <strong>TBA</strong></div>
+            <div id="fpde-deadline" style="margin-bottom:14px; color:#4b5563;">Deadline for abstract submission: <strong>TBA</strong></div>
             <a id="fpde-btn" href="https://tally.so/r/NpodJ0" target="_blank" rel="noopener">Submit abstract</a>
         </div>
     </div>
@@ -103,11 +117,8 @@
 
     <div style="max-width: 1200px; margin: 0 auto 60px; padding: 0 20px;">
         <div style="border: 1px solid rgba(0,0,0,0.08); border-radius: 18px; padding: clamp(10px, 3vw, 25px); background: white; box-shadow: 0 10px 30px rgba(0,0,0,0.06);">
-            
             <div style="margin-bottom: 20px; font-weight: 800; font-size: 22px; color: var(--primary-blue);">Conference Schedule</div>
-
             <div id="table_div" class="fpde-table-wrap">Loading schedule...</div>
-
             <div id="mobile-list-container">Loading mobile view...</div>
         </div>
     </div>
@@ -139,13 +150,8 @@
 
         function renderAll() {
             if (!__originalData) return;
-            const isMobile = window.innerWidth <= 768;
-
-            if (isMobile) {
-                renderMobileList();
-            } else {
-                renderDesktopTable();
-            }
+            if (window.innerWidth <= 768) { renderMobileList(); } 
+            else { renderDesktopTable(); }
         }
 
         function renderDesktopTable() {
@@ -175,40 +181,27 @@
         function renderMobileList() {
             const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
             let html = "";
-
             days.forEach((day, dayIdx) => {
                 const colIdx = dayIdx + 1;
                 let dayHtml = `<div class="day-section"><div class="day-title">${day}</div>`;
                 let hasContent = false;
-
                 for (let i = 0; i < __originalData.getNumberOfRows(); i += 2) {
                     let time = __originalData.getValue(i, 0) || "";
                     let name = __originalData.getValue(i, colIdx) || "";
                     let title = (i + 1 < __originalData.getNumberOfRows()) ? __originalData.getValue(i + 1, colIdx) || "" : "";
-
                     if (name.trim() !== "" || title.trim() !== "") {
                         hasContent = true;
-                        dayHtml += `
-                            <div class="slot-row">
-                                <div class="slot-time">${time}</div>
-                                <div class="slot-content">
-                                    <strong>${name}</strong>
-                                    ${title ? `<span class="slot-title-text">${title}</span>` : ""}
-                                </div>
-                            </div>`;
+                        dayHtml += `<div class="slot-row"><div class="slot-time">${time}</div><div class="slot-content"><strong>${name}</strong>${title ? `<span class="slot-title-text">${title}</span>` : ""}</div></div>`;
                     }
                 }
                 dayHtml += "</div>";
                 if (hasContent) html += dayHtml;
             });
-
             document.getElementById("mobile-list-container").innerHTML = html || "No schedule available.";
         }
 
-        // Listener dla zmiany rozmiaru okna
         window.addEventListener("resize", renderAll);
         
-        // Skalowanie przycisku submit (Twój skrypt)
         (function () {
             const stage = document.getElementById('fpde-stage');
             const inner = document.getElementById('fpde-inner');
