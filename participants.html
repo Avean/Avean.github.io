@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Participants | XIV Forum on PDE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <style>
+        :root {
+            --primary-blue: #1E3A8A;
+            --navbar-bg: rgba(30, 41, 59, 0.98);
+            --light-gray: #f5f7f9;
+        }
+
+        body { margin: 0; padding: 0; font-family: 'Lato', sans-serif; background-color: #fcfcfc; color: #1f2937; }
+
+        /* --- NAVBAR --- */
+        .navbar {
+            position: fixed; top: 0; width: 100%; background-color: var(--navbar-bg);
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 12px 40px; box-sizing: border-box; z-index: 1000;
+        }
+        .nav-logo { display: flex; align-items: center; color: white; text-decoration: none; font-weight: 700; font-size: 18px; }
+        .nav-logo img { height: 35px; background: white; padding: 3px; border-radius: 4px; margin-right: 12px; }
+        .nav-links { display: flex; gap: 20px; }
+        .nav-links a { color: #cbd5e1; text-decoration: none; font-size: 14px; transition: 0.3s; }
+        .nav-links a:hover { color: white; }
+
+        /* --- BANNER NAGŁÓWKA --- */
+        .header-banner {
+            margin-top: 60px;
+            background: #fff;
+            padding: 40px 20px;
+            border-bottom: 1px solid #eee;
+            display: flex; justify-content: center; align-items: center;
+        }
+        .header-container {
+            max-width: 1100px; width: 100%;
+            display: flex; align-items: center; justify-content: space-between; gap: 30px;
+        }
+        .logos { display: flex; align-items: center; gap: 20px; }
+        .logos img { height: clamp(60px, 10vw, 110px); }
+        .header-text { text-align: right; }
+        .header-text h1 { font-size: clamp(20px, 2.5vw, 28px); color: #1E3A8A; margin: 0; font-weight: 900; }
+        .header-text p { font-size: clamp(14px, 1.5vw, 18px); margin: 5px 0 0 0; color: #4b5563; }
+
+        /* --- TWOJE STYLE TABELI --- */
+        .fpde-table-wrap, 
+        .google-visualization-table, 
+        .google-visualization-table > div,
+        .google-visualization-table-table {
+            overflow: visible !important;
+            height: auto !important;
+        }
+
+        .google-visualization-table-table {
+            border-collapse: separate !important;
+            border-spacing: 0 !important;
+            width: 100% !important;
+            font-size: 14px !important;
+            border: 1px solid rgba(0,0,0,0.10) !important;
+            border-radius: 14px !important;
+            background: white !important;
+            overflow: hidden !important;
+        }
+
+        .fpde-header { background: linear-gradient(90deg, #1E3A8A, #2b76b8) !important; }
+        .fpde-header-cell { color: #ffffff !important; font-weight: 800 !important; padding: 14px 12px !important; border: none !important; text-align: left !important; }
+        .fpde-row td, .fpde-row-odd td { padding: 11px 12px !important; border-bottom: 1px solid rgba(0,0,0,0.06) !important; }
+        .fpde-row-odd { background: rgba(30,58,138,0.03) !important; }
+
+        /* RWD MOBILNY */
+        @media (max-width: 768px) {
+            .navbar { padding: 10px 20px; }
+            .nav-links { display: none; }
+            .header-container { flex-direction: column; text-align: center; }
+            .header-text { text-align: center; }
+            
+            /* Twoje style kart dla mobile */
+            .fpde-header, .google-visualization-table-thead { display: none !important; }
+            .google-visualization-table-table { border: none !important; background: transparent !important; }
+            .fpde-row, .fpde-row-odd { display: block !important; margin-bottom: 15px !important; border: 1px solid rgba(0,0,0,0.1) !important; border-radius: 12px !important; background: white !important; }
+            .fpde-row td, .fpde-row-odd td { display: flex !important; justify-content: space-between !important; padding: 12px 15px !important; border-bottom: 1px solid rgba(0,0,0,0.05) !important; }
+            .fpde-row td::before, .fpde-row-odd td::before { content: attr(data-label); font-weight: 800; color: #1E3A8A; font-size: 11px; text-transform: uppercase; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-logo">
+            <img src="logo-impan.png" alt="IMPAN">
+            XIV FPDE
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home page</a>
+            <a href="registration.html">Registration</a>
+            <a href="participants.html" style="color: white; font-weight: bold;">Participants</a>
+            <a href="#">Programme & Abstracts</a>
+            <a href="#">Scientific Committee</a>
+            <a href="#">Organizing Committee</a>
+        </div>
+    </nav>
+
+    <header class="header-banner">
+        <div class="header-container">
+            <div class="logos">
+                <img src="logo-impan.png" alt="IMPAN Logo">
+                <img src="https://www.impan.pl/images/bc-logo.png" alt="Banach Center">
+            </div>
+            <div class="header-text">
+                <h1>XIV Forum of Partial Differential Equations</h1>
+                <p>Institute of Mathematics of Polish Academy of Sciences,</p>
+                <p>Poland, 13 - 19 September 2026</p>
+            </div>
+        </div>
+    </header>
+
+    <div style="max-width: 980px; margin: 24px auto; padding: 0 20px;">
+        <div style="border: 1px solid rgba(0,0,0,0.08); border-radius: 18px; padding: 18px; background: rgba(255,255,255,0.75); box-shadow: 0 10px 30px rgba(0,0,0,0.06);">
+            <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+                <div style="font-weight:800; color:#111827; font-size: 20px;">Participants</div>
+                <div style="font-size: 13px; color:#6b7280;">Auto-updated from Google Sheets</div>
+            </div>
+
+            <div style="height:12px;"></div>
+
+            <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom: 12px;">
+                <input id="fpde_search" type="text" placeholder="Search (name / affiliation)…"
+                    style="flex: 1 1 260px; border: 1px solid rgba(0,0,0,0.12); border-radius: 12px; padding: 10px 12px; font-size: 14px; outline: none;"
+                    oninput="window.__fpdeFilter && window.__fpdeFilter(this.value)" />
+            </div>
+
+            <div id="table_div" class="fpde-table-wrap">Loading participants list…</div>
+        </div>
+    </div>
+
+    <script>
+        const SHEET_ID = "1VffiImOEmeS45pU_LhfasbGLAAkNoK3ASsNCB64V1K4";
+        const GID = "1757362562"; 
+        const RANGE = "A:C"; 
+
+        google.charts.load("current", { packages: ["table"] });
+        google.charts.setOnLoadCallback(drawTable);
+
+        let __fpdeData = null;
+        let __fpdeView = null;
+        let __fpdeTable = null;
+
+        function drawTable() {
+            let base = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?gid=${GID}&`;
+            let params = [];
+            params.push(`range=${encodeURIComponent(RANGE)}`);
+            params.push(`tq=${encodeURIComponent("select A, B, C where A is not null")}`);
+            params.push(`tqx=${encodeURIComponent("responseHandler:fpdeHandle")}`);
+            const queryUrl = base + params.join("&");
+            const query = new google.visualization.Query(queryUrl);
+            query.send(fpdeHandleResponse);
+        }
+
+        function fpdeHandleResponse(response) {
+            if (response.isError()) {
+                document.getElementById("table_div").innerHTML = "Error: " + response.getMessage();
+                return;
+            }
+            __fpdeData = response.getDataTable();
+            if (__fpdeData.getNumberOfColumns() >= 3) {
+                __fpdeData.setColumnLabel(0, "Name");
+                __fpdeData.setColumnLabel(1, "Surname");
+                __fpdeData.setColumnLabel(2, "Affiliation");
+            }
+            __fpdeView = new google.visualization.DataView(__fpdeData);
+            __fpdeTable = new google.visualization.Table(document.getElementById("table_div"));
+
+            google.visualization.events.addListener(__fpdeTable, 'ready', function () {
+                const rows = document.querySelectorAll('.fpde-row, .fpde-row-odd');
+                rows.forEach(row => {
+                    const cells = row.querySelectorAll('td');
+                    if(cells[0]) cells[0].setAttribute('data-label', 'Name');
+                    if(cells[1]) cells[1].setAttribute('data-label', 'Surname');
+                    if(cells[2]) cells[2].setAttribute('data-label', 'Affiliation');
+                });
+            });
+            renderTable();
+        }
+
+        function renderTable() {
+            const isMobile = window.innerWidth <= 600;
+            const options = {
+                showRowNumber: false, width: "100%", height: "auto", allowHtml: true, alternatingRowStyle: true,
+                page: isMobile ? "disable" : "enable", pageSize: 15, sort: "enable",
+                cssClassNames: { headerRow: "fpde-header", tableRow: "fpde-row", oddTableRow: "fpde-row-odd", headerCell: "fpde-header-cell", tableCell: "fpde-cell" }
+            };
+            __fpdeTable.draw(__fpdeView, options);
+        }
+
+        window.__fpdeFilter = function (q) {
+            if (!__fpdeData || !__fpdeView) return;
+            const query = (q || "").trim().toLowerCase();
+            if (!query) { __fpdeView = new google.visualization.DataView(__fpdeData); renderTable(); return; }
+            const rows = [];
+            for (let r = 0; r < __fpdeData.getNumberOfRows(); r++) {
+                const val = (String(__fpdeData.getValue(r,0))+" "+String(__fpdeData.getValue(r,1))+" "+String(__fpdeData.getValue(r,2))).toLowerCase();
+                if (val.includes(query)) rows.push(r);
+            }
+            __fpdeView = new google.visualization.DataView(__fpdeData);
+            __fpdeView.setRows(rows);
+            renderTable();
+        };
+
+        window.addEventListener("resize", () => { if (__fpdeTable && __fpdeView) renderTable(); });
+    </script>
+</body>
+</html>
