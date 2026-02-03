@@ -7,6 +7,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="header.js" defer></script>
+    <style>
+        /* Prosty styl dla danych bankowych bez tła i dziwnych czcionek */
+        .payment-row {
+            margin-top: 10px;
+            line-height: 1.5;
+        }
+        .account-number {
+            font-family: inherit; /* Używa Lato */
+            font-weight: 700;
+            color: #111827;
+            letter-spacing: 0.02em;
+        }
+    </style>
 </head>
 <body>
 
@@ -37,30 +50,35 @@
 
             <section style="margin-bottom:30px;">
                 <div class="section-title">Payment details</div>
-                <div style="margin-top:10px;">
+                
+                <div class="payment-row">
                     <strong>Account holder:</strong><br/>
                     Ośrodek Badawczo-Konferencyjny IMPAN w Będlewie
                 </div>
-                <div style="margin-top:12px;">
+                
+                <div class="payment-row">
                     <strong>Bank:</strong><br/>
                     Bank Gospodarstwa Krajowego<br/>
                     Al. Jerozolimskie 7, 00-955 Warszawa, Poland
                 </div>
                 
-                <div style="margin-top:15px;">
+                <div class="payment-row" style="margin-top:15px;">
                     <strong>IBAN (EUR):</strong><br/>
-                    <span class="bank-code">PL 80 1130 1017 0020 1467 1520 0008</span>
+                    <span class="account-number">PL 80 1130 1017 0020 1467 1520 0008</span>
                 </div>
-                <div style="margin-top:8px;">
+                
+                <div class="payment-row">
                     <strong>IBAN (PLN):</strong><br/>
-                    <span class="bank-code">PL 48 1130 1017 0020 1467 1520 0002</span>
+                    <span class="account-number">PL 48 1130 1017 0020 1467 1520 0002</span>
                 </div>
-                <div style="margin-top:8px;">
-                    <strong>BIC / SWIFT:</strong> <span class="bank-code">GOSKPLPW</span>
+                
+                <div class="payment-row">
+                    <strong>BIC / SWIFT:</strong> <span class="account-number">GOSKPLPW</span>
                 </div>
-                <div style="margin-top:12px;">
+                
+                <div class="payment-row" style="margin-top:12px;">
                     <strong>Transfer description:</strong><br/>
-                    <span style="font-style: italic;">FORUM PDE + name of the participant</span>
+                    <span style="font-style: italic; color: var(--primary-blue);">FORUM PDE + name of the participant</span>
                 </div>
             </section>
 
@@ -81,4 +99,3 @@
 
 </body>
 </html>
-
