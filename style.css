@@ -1,0 +1,191 @@
+/* --- ZMIENNE I PODSTAWY --- */
+:root {
+    --primary-blue: #1E3A8A;
+    --navbar-bg: rgba(30, 41, 59, 0.98);
+    --light-gray: #f5f7f9;
+    --text-dark: #111827;
+    --text-muted: #4b5563;
+    --border-soft: rgba(0,0,0,0.08);
+}
+
+body { 
+    margin: 0; 
+    padding: 0; 
+    font-family: 'Lato', sans-serif; 
+    background-color: #fcfcfc; 
+    color: #1f2937; 
+}
+
+/* --- NAVBAR --- */
+.navbar {
+    position: fixed; 
+    top: 0; 
+    width: 100%; 
+    background-color: var(--navbar-bg);
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 12px 40px; 
+    box-sizing: border-box; 
+    z-index: 1000;
+}
+
+.nav-logo { 
+    display: flex; 
+    align-items: center; 
+    color: white; 
+    text-decoration: none; 
+    font-weight: 700; 
+    font-size: 18px; 
+}
+
+.nav-logo img { 
+    height: 35px; 
+    background: white; 
+    padding: 3px; 
+    border-radius: 4px; 
+    margin-right: 12px; 
+}
+
+.nav-links { 
+    display: flex; 
+    gap: 20px; 
+}
+
+.nav-links a { 
+    color: #cbd5e1; 
+    text-decoration: none; 
+    font-size: 14px; 
+    transition: 0.3s; 
+}
+
+.nav-links a:hover, .nav-links a.active-link { 
+    color: white; 
+}
+
+.nav-links a.active-link {
+    font-weight: bold;
+}
+
+/* --- HEADER / BANNER --- */
+.header-banner {
+    margin-top: 60px;
+    background: #fff;
+    padding: 40px 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-container {
+    max-width: 1100px; 
+    width: 100%;
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    gap: 30px;
+}
+
+.logos { 
+    display: flex; 
+    align-items: center; 
+    gap: 20px; 
+}
+
+.logos img { 
+    height: clamp(60px, 10vw, 85px); /* Skalowanie logo IMPAN */
+    width: auto;
+}
+
+.logo-banach {
+    height: clamp(80px, 12vw, 115px) !important; /* Skalowanie logo Banacha (zgodnie z prośbą) */
+}
+
+.header-text { 
+    text-align: right; 
+}
+
+.header-text h1 { 
+    font-size: clamp(20px, 2.5vw, 28px); 
+    color: var(--primary-blue); 
+    margin: 0; 
+    font-weight: 900; 
+}
+
+.header-text p { 
+    font-size: clamp(14px, 1.5vw, 18px); 
+    margin: 5px 0 0 0; 
+    color: var(--text-muted); 
+}
+
+/* --- KONTENER TREŚCI --- */
+.responsive-container {
+    max-width: 900px;
+    margin: 40px auto;
+    font-size: clamp(17px, 1.4vw, 20px);
+    line-height: 1.6;
+    padding: 0 20px 60px;
+}
+
+.main-box {
+    border: 1px solid var(--border-soft);
+    border-radius: 18px;
+    padding: clamp(20px, 4vw, 45px);
+    background: white;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+/* --- ELEMENTY FORMULARZA I TEKSTU --- */
+.section-title {
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+}
+
+.info-text {
+    color: var(--text-muted);
+    font-size: 0.95em;
+    margin-top: 10px;
+}
+
+.bank-code {
+    word-break: break-all;
+    font-family: 'Courier New', monospace;
+    background: #f1f5f9;
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    margin: 4px 0;
+}
+
+/* --- PRZYCISK REGISTRACJI --- */
+.btn-registration {
+    display: inline-block;
+    width: 100%;
+    max-width: 320px;
+    box-sizing: border-box;
+    padding: 18px 32px;
+    font-size: 20px;
+    font-weight: 800;
+    color: #ffffff;
+    background: var(--primary-blue);
+    border-radius: 15px;
+    text-decoration: none;
+    transition: transform 0.2s, background 0.2s;
+    text-align: center;
+}
+
+.btn-registration:hover {
+    background: #172e6e;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(30, 58, 138, 0.3);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .navbar { padding: 10px 20px; }
+    .header-container { flex-direction: column; text-align: center; }
+    .header-text { text-align: center; }
+    .logos { justify-content: center; }
+}
