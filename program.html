@@ -14,23 +14,15 @@
 
         body { margin: 0; padding: 0; font-family: 'Lato', sans-serif; background-color: #fcfcfc; color: #1f2937; }
 
-        /* --- NAVBAR --- */
-        .navbar {
-            position: fixed; top: 0; width: 100%; background-color: var(--navbar-bg);
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 12px 40px; box-sizing: border-box; z-index: 1000;
-        }
+        /* --- NAVBAR & HEADER (Bez zmian) --- */
+        .navbar { position: fixed; top: 0; width: 100%; background-color: var(--navbar-bg); display: flex; justify-content: space-between; align-items: center; padding: 12px 40px; box-sizing: border-box; z-index: 1000; }
         .nav-logo { display: flex; align-items: center; color: white; text-decoration: none; font-weight: 700; font-size: 18px; }
         .nav-logo img { height: 35px; background: white; padding: 3px; border-radius: 4px; margin-right: 12px; }
         .nav-links { display: flex; gap: 20px; }
         .nav-links a { color: #cbd5e1; text-decoration: none; font-size: 14px; transition: 0.3s; }
         .nav-links a:hover { color: white; }
 
-        /* --- HEADER --- */
-        .header-banner {
-            margin-top: 60px; background: #fff; padding: 40px 20px; border-bottom: 1px solid #eee;
-            display: flex; justify-content: center; align-items: center;
-        }
+        .header-banner { margin-top: 60px; background: #fff; padding: 40px 20px; border-bottom: 1px solid #eee; display: flex; justify-content: center; align-items: center; }
         .header-container { max-width: 1100px; width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 30px; }
         .logos { display: flex; align-items: center; gap: 20px; }
         .logos img { height: clamp(60px, 10vw, 110px); }
@@ -38,55 +30,52 @@
         .header-text h1 { font-size: clamp(20px, 2.5vw, 28px); color: var(--primary-blue); margin: 0; font-weight: 900; }
         .header-text p { font-size: clamp(14px, 1.5vw, 18px); margin: 5px 0 0 0; color: #4b5563; }
 
-        /* --- STYLIZACJA LINII ROZDZIELAJĄCEJ --- */
-        .separator {
-            max-width: 900px; margin: 40px auto; border: 0;
-            height: 1px; background: linear-gradient(to right, transparent, rgba(0,0,0,0.1), transparent);
-        }
+        .separator { max-width: 900px; margin: 40px auto; border: 0; height: 1px; background: linear-gradient(to right, transparent, rgba(0,0,0,0.1), transparent); }
 
-        /* Sekcja 1: Twoje style dla Submit Abstract */
+        /* --- STYLIZACJA PRZYCISKU --- */
         #fpde-stage { width: 100%; overflow: hidden; margin-top: 40px; }
-        #fpde-inner { width: 520px; margin: 0 auto; transform-origin: top center; will-change: transform; text-align:center; font-size: 20px; line-height:1.65; }
-        #fpde-btn { 
-            display:inline-flex; align-items:center; justify-content:center; width: 420px; max-width: 100%; 
-            padding: 18px 28px; font-size: 24px; font-weight: 800; color: var(--primary-blue); 
-            border-radius: 18px; text-decoration: none; box-shadow: 0 0 0 2px var(--primary-blue) inset; transition: 0.3s;
-        }
-        #fpde-btn:hover { background: rgba(30, 58, 138, 0.05); }
+        #fpde-inner { width: 520px; margin: 0 auto; transform-origin: top center; text-align:center; font-size: 20px; line-height:1.65; }
+        #fpde-btn { display:inline-flex; align-items:center; justify-content:center; width: 420px; max-width: 100%; padding: 18px 28px; font-size: 24px; font-weight: 800; color: var(--primary-blue); border-radius: 18px; text-decoration: none; box-shadow: 0 0 0 2px var(--primary-blue) inset; }
         #fpde-deadline { margin-bottom:14px; color:#4b5563; }
 
-        /* Sekcja 2: Twoje style dla Tabeli Schedule */
-        .fpde-table-wrap { width: 100%; overflow-x: auto; border-radius: 14px; }
+        /* --- TABELA DESKTOP --- */
+        .fpde-table-wrap { width: 100%; border-radius: 14px; display: block; }
         .google-visualization-table-table { border-collapse: separate !important; width: 100% !important; border-radius: 14px !important; overflow: hidden !important; table-layout: fixed !important; }
         .fpde-header { background: linear-gradient(90deg, #1E3A8A, #2b76b8) !important; }
         .fpde-header-cell { color: white !important; font-weight: 800 !important; padding: 12px !important; text-align: center !important; }
         .fpde-cell { padding: 12px 8px !important; border-bottom: 1px solid rgba(0,0,0,0.06) !important; vertical-align: middle !important; text-align: center !important; word-wrap: break-word !important; white-space: normal !important; }
         .google-visualization-table-table td:first-child { width: 100px !important; background-color: rgba(30,58,138,0.05); font-weight: bold; color: var(--primary-blue); }
-        .schedule-cell-content { line-height: 1.3; text-align: center; }
-        .schedule-title { color: #4b5563; font-size: 0.85em; display: block; margin-top: 4px; font-weight: normal; }
+
+        /* --- WIDOK MOBILNY (LISTA) --- */
+        #mobile-list-container { display: none; }
 
         @media (max-width: 768px) {
             .navbar { padding: 10px 20px; } .nav-links { display: none; }
             .header-container { flex-direction: column; text-align: center; }
             .header-text { text-align: center; }
-            .google-visualization-table-table { width: 900px !important; table-layout: auto !important; }
+            
+            .fpde-table-wrap { display: none; } /* Ukrywamy tabelę na mobile */
+            #mobile-list-container { display: block; } /* Pokazujemy listę */
+
+            .day-section { margin-bottom: 30px; }
+            .day-title { background: var(--primary-blue); color: white; padding: 10px 15px; border-radius: 8px; font-weight: 800; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+            .slot-row { display: flex; border-bottom: 1px solid #eee; padding: 12px 0; gap: 15px; align-items: flex-start; }
+            .slot-time { flex: 0 0 80px; font-weight: 700; color: var(--primary-blue); font-size: 14px; }
+            .slot-content { flex: 1; font-size: 15px; line-height: 1.4; }
+            .slot-content strong { color: #111; display: block; margin-bottom: 2px; }
+            .slot-title-text { color: #6b7280; font-size: 13px; font-style: italic; }
         }
     </style>
 </head>
 <body>
 
     <nav class="navbar">
-        <a href="index.html" class="nav-logo">
-            <img src="logo-impan.png" alt="IMPAN">
-            XIV FPDE
-        </a>
+        <a href="index.html" class="nav-logo"><img src="logo-impan.png" alt="IMPAN"> XIV FPDE</a>
         <div class="nav-links">
             <a href="index.html">Home page</a>
             <a href="registration.html">Registration</a>
             <a href="participants.html">Participants</a>
             <a href="programme.html" style="color: white; font-weight: bold;">Programme & Abstracts</a>
-            <a href="#">Scientific Committee</a>
-            <a href="#">Organizing Committee</a>
         </div>
     </nav>
 
@@ -98,7 +87,6 @@
             </div>
             <div class="header-text">
                 <h1>XIV Forum of Partial Differential Equations</h1>
-                <p>Institute of Mathematics of Polish Academy of Sciences,</p>
                 <p>Poland, 13 - 19 September 2026</p>
             </div>
         </div>
@@ -106,49 +94,23 @@
 
     <div id="fpde-stage">
         <div id="fpde-inner">
-            <div id="fpde-deadline">
-                Deadline for abstract submission: <strong>TBA</strong>
-            </div>
-            <a id="fpde-btn" href="https://tally.so/r/NpodJ0" target="_blank" rel="noopener">
-                Submit abstract
-            </a>
+            <div id="fpde-deadline">Deadline for abstract submission: <strong>TBA</strong></div>
+            <a id="fpde-btn" href="https://tally.so/r/NpodJ0" target="_blank" rel="noopener">Submit abstract</a>
         </div>
     </div>
 
     <hr class="separator">
 
     <div style="max-width: 1200px; margin: 0 auto 60px; padding: 0 20px;">
-        <div style="border: 1px solid rgba(0,0,0,0.08); border-radius: 18px; padding: 18px; background: rgba(255,255,255,0.75); box-shadow: 0 10px 30px rgba(0,0,0,0.06);">
+        <div style="border: 1px solid rgba(0,0,0,0.08); border-radius: 18px; padding: clamp(10px, 3vw, 25px); background: white; box-shadow: 0 10px 30px rgba(0,0,0,0.06);">
             
-            <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom: 12px;">
-                <input id="fpde_search" type="text" placeholder="Search schedule..."
-                    style="flex: 1 1 260px; border: 1px solid rgba(0,0,0,0.12); border-radius: 12px; padding: 10px 12px; font-size: 14px; outline: none;"
-                    oninput="window.__fpdeFilter && window.__fpdeFilter(this.value)" />
-                <div style="font-size:12px; color:#6b7280;">Schedule: Monday — Friday</div>
-            </div>
+            <div style="margin-bottom: 20px; font-weight: 800; font-size: 22px; color: var(--primary-blue);">Conference Schedule</div>
 
             <div id="table_div" class="fpde-table-wrap">Loading schedule...</div>
+
+            <div id="mobile-list-container">Loading mobile view...</div>
         </div>
     </div>
-
-    <script>
-        (function () {
-            const stage = document.getElementById('fpde-stage');
-            const inner = document.getElementById('fpde-inner');
-            function rescale() {
-                const available = stage.clientWidth;
-                const base = 520;
-                const s = Math.min(1, available / base);
-                inner.style.transform = `scale(${s})`;
-                const h = inner.getBoundingClientRect().height;
-                stage.style.height = Math.ceil(h) + 'px';
-            }
-            requestAnimationFrame(rescale);
-            const ro = new ResizeObserver(() => requestAnimationFrame(rescale));
-            ro.observe(stage);
-            window.addEventListener('load', () => requestAnimationFrame(rescale));
-        })();
-    </script>
 
     <script>
         const SHEET_ID = "1qzXcSyGqvO82RKZHYP4ongcIbIbkXkHhNWaZ2FAbb6k";
@@ -158,9 +120,7 @@
         google.charts.load("current", { packages: ["table"] });
         google.charts.setOnLoadCallback(drawTable);
 
-        let __mergedDataTable = null;
-        let __fpdeView = null;
-        let __fpdeTable = null;
+        let __originalData = null;
 
         function drawTable() {
             let queryUrl = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?gid=${SHEET_GID}&range=${RANGE}&tqx=responseHandler:fpdeHandle`;
@@ -173,51 +133,95 @@
                 document.getElementById("table_div").innerHTML = "Error loading data.";
                 return;
             }
-            const originalData = response.getDataTable();
-            __mergedDataTable = new google.visualization.DataTable();
-            const labels = ["Time", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
-            labels.forEach(label => __mergedDataTable.addColumn('string', label));
-
-            for (let i = 0; i < originalData.getNumberOfRows(); i += 2) {
-                let newRow = [originalData.getValue(i, 0) || ""];
-                for (let col = 1; col <= 5; col++) {
-                    let name = originalData.getValue(i, col) || "";
-                    let title = (i + 1 < originalData.getNumberOfRows()) ? originalData.getValue(i + 1, col) || "" : "";
-                    if (name || title) {
-                        newRow.push(`<div class="schedule-cell-content"><strong>${name}</strong>${title ? '<br><span class="schedule-title">' + title + '</span>' : ''}</div>`);
-                    } else { newRow.push(""); }
-                }
-                __mergedDataTable.addRow(newRow);
-            }
-            __fpdeView = new google.visualization.DataView(__mergedDataTable);
-            __fpdeTable = new google.visualization.Table(document.getElementById("table_div"));
-            renderTable();
+            __originalData = response.getDataTable();
+            renderAll();
         }
 
-        function renderTable() {
-            __fpdeTable.draw(__fpdeView, {
+        function renderAll() {
+            if (!__originalData) return;
+            const isMobile = window.innerWidth <= 768;
+
+            if (isMobile) {
+                renderMobileList();
+            } else {
+                renderDesktopTable();
+            }
+        }
+
+        function renderDesktopTable() {
+            const mergedDataTable = new google.visualization.DataTable();
+            const labels = ["Time", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+            labels.forEach(label => mergedDataTable.addColumn('string', label));
+
+            for (let i = 0; i < __originalData.getNumberOfRows(); i += 2) {
+                let newRow = [__originalData.getValue(i, 0) || ""];
+                for (let col = 1; col <= 5; col++) {
+                    let name = __originalData.getValue(i, col) || "";
+                    let title = (i + 1 < __originalData.getNumberOfRows()) ? __originalData.getValue(i + 1, col) || "" : "";
+                    if (name || title) {
+                        newRow.push(`<div style="text-align:center;"><strong>${name}</strong>${title ? '<br><span style="font-size:0.85em;color:#666;">' + title + '</span>' : ''}</div>`);
+                    } else { newRow.push(""); }
+                }
+                mergedDataTable.addRow(newRow);
+            }
+
+            const table = new google.visualization.Table(document.getElementById("table_div"));
+            table.draw(mergedDataTable, {
                 allowHtml: true, showRowNumber: false, width: "100%", height: "auto", sort: 'disable',
                 cssClassNames: { headerRow: "fpde-header", headerCell: "fpde-header-cell", tableCell: "fpde-cell" }
             });
         }
 
-        window.__fpdeFilter = function (q) {
-            if (!__mergedDataTable) return;
-            const query = (q || "").trim().toLowerCase();
-            const rows = [];
-            for (let r = 0; r < __mergedDataTable.getNumberOfRows(); r++) {
-                let rowText = "";
-                for (let c = 0; c < __mergedDataTable.getNumberOfColumns(); c++) {
-                    rowText += String(__mergedDataTable.getValue(r, c) ?? "").toLowerCase() + " ";
-                }
-                if (rowText.includes(query)) rows.push(r);
-            }
-            __fpdeView = new google.visualization.DataView(__mergedDataTable);
-            __fpdeView.setRows(rows);
-            renderTable();
-        };
+        function renderMobileList() {
+            const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+            let html = "";
 
-        window.addEventListener("resize", () => __fpdeTable && renderTable());
+            days.forEach((day, dayIdx) => {
+                const colIdx = dayIdx + 1;
+                let dayHtml = `<div class="day-section"><div class="day-title">${day}</div>`;
+                let hasContent = false;
+
+                for (let i = 0; i < __originalData.getNumberOfRows(); i += 2) {
+                    let time = __originalData.getValue(i, 0) || "";
+                    let name = __originalData.getValue(i, colIdx) || "";
+                    let title = (i + 1 < __originalData.getNumberOfRows()) ? __originalData.getValue(i + 1, colIdx) || "" : "";
+
+                    if (name.trim() !== "" || title.trim() !== "") {
+                        hasContent = true;
+                        dayHtml += `
+                            <div class="slot-row">
+                                <div class="slot-time">${time}</div>
+                                <div class="slot-content">
+                                    <strong>${name}</strong>
+                                    ${title ? `<span class="slot-title-text">${title}</span>` : ""}
+                                </div>
+                            </div>`;
+                    }
+                }
+                dayHtml += "</div>";
+                if (hasContent) html += dayHtml;
+            });
+
+            document.getElementById("mobile-list-container").innerHTML = html || "No schedule available.";
+        }
+
+        // Listener dla zmiany rozmiaru okna
+        window.addEventListener("resize", renderAll);
+        
+        // Skalowanie przycisku submit (Twój skrypt)
+        (function () {
+            const stage = document.getElementById('fpde-stage');
+            const inner = document.getElementById('fpde-inner');
+            function rescale() {
+                const available = stage.clientWidth;
+                const base = 520;
+                const s = Math.min(1, available / base);
+                inner.style.transform = `scale(${s})`;
+                stage.style.height = Math.ceil(inner.getBoundingClientRect().height) + 'px';
+            }
+            requestAnimationFrame(rescale);
+            new ResizeObserver(rescale).observe(stage);
+        })();
     </script>
 </body>
 </html>
