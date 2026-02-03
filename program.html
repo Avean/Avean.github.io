@@ -33,28 +33,39 @@
 
         .separator { max-width: 900px; margin: 40px auto; border: 0; height: 1px; background: linear-gradient(to right, transparent, rgba(0,0,0,0.1), transparent); }
 
-        /* --- SUBMIT BTN --- */
+        /* --- SUBMIT BTN SECTION --- */
         #fpde-stage { width: 100%; overflow: hidden; margin-top: 40px; }
         #fpde-inner { width: 520px; margin: 0 auto; transform-origin: top center; text-align:center; font-size: 20px; }
-        #fpde-btn { display:inline-flex; align-items:center; justify-content:center; width: 420px; max-width: 100%; padding: 18px 28px; font-size: 24px; font-weight: 800; color: var(--primary-blue); border-radius: 18px; text-decoration: none; box-shadow: 0 0 0 2px var(--primary-blue) inset; }
+        #fpde-btn { display:inline-flex; align-items:center; justify-content:center; width: 420px; max-width: 100%; padding: 18px 28px; font-size: 24px; font-weight: 800; color: var(--primary-blue); border-radius: 18px; text-decoration: none; box-shadow: 0 0 0 2px var(--primary-blue) inset; transition: background 0.2s; }
+        #fpde-btn:hover { background: rgba(30, 58, 138, 0.05); }
 
-        /* --- DESKTOP TABLE SPECIFICS --- */
+        /* --- DESKTOP TABLE STYLE --- */
         .fpde-table-wrap { width: 100%; border-radius: 14px; display: block; overflow-x: auto; }
         .google-visualization-table-table { border-collapse: separate !important; width: 100% !important; border-radius: 14px !important; table-layout: fixed !important; }
         .fpde-header { background: linear-gradient(90deg, #1E3A8A, #2b76b8) !important; }
         .fpde-header-cell { color: white !important; font-weight: 800 !important; padding: 12px !important; text-align: center !important; }
-        .fpde-cell { padding: 12px 8px !important; border-bottom: 1px solid rgba(0,0,0,0.06) !important; vertical-align: middle !important; text-align: center !important; word-wrap: break-word !important; }
         
-        /* SZEROKOŚĆ GODZIN NA PC */
+        /* Komórki ogólne */
+        .fpde-cell { 
+            padding: 12px 8px !important; 
+            border-bottom: 1px solid rgba(0,0,0,0.06) !important; 
+            vertical-align: middle !important; 
+            text-align: center !important; 
+            word-wrap: break-word !important; 
+        }
+        
+        /* Specyfika kolumny z godzinami na PC */
         .google-visualization-table-table td:first-child, 
         .google-visualization-table-table th:first-child { 
             width: 115px !important; 
             background-color: rgba(30,58,138,0.05);
             font-weight: bold;
             color: var(--primary-blue);
+            vertical-align: middle !important;
+            text-align: center !important;
         }
 
-        /* --- MOBILE LIST --- */
+        /* --- MOBILE LIST STYLE --- */
         #mobile-list-container { display: none; }
 
         @media (max-width: 768px) {
@@ -66,15 +77,22 @@
 
             .day-section { margin-bottom: 30px; }
             .day-title { background: var(--primary-blue); color: white; padding: 10px 15px; border-radius: 8px; font-weight: 800; margin-bottom: 10px; text-transform: uppercase; }
-            .slot-row { display: flex; border-bottom: 1px solid #eee; padding: 12px 0; gap: 15px; align-items: flex-start; }
             
-            /* SZEROKOŚĆ GODZIN NA MOBILE */
+            .slot-row { 
+                display: flex; 
+                border-bottom: 1px solid #eee; 
+                padding: 12px 0; 
+                gap: 15px; 
+                align-items: center; /* Centrowanie pionowe na mobile */
+            }
+            
             .slot-time { 
-                flex: 0 0 105px; 
+                flex: 0 0 105px; /* Szerokość dostosowana do 00:00-00:00 */
                 font-weight: 700; 
                 color: var(--primary-blue); 
                 font-size: 14px; 
-                white-space: nowrap; 
+                white-space: nowrap;
+                text-align: center;
             }
             .slot-content { flex: 1; font-size: 15px; line-height: 1.4; }
             .slot-title-text { color: #6b7280; font-size: 13px; font-style: italic; display: block; margin-top: 4px; }
@@ -90,6 +108,8 @@
             <a href="registration.html">Registration</a>
             <a href="participants.html">Participants</a>
             <a href="programme.html" style="color: white; font-weight: bold;">Programme & Abstracts</a>
+            <a href="#">Scientific Committee</a>
+            <a href="#">Organizing Committee</a>
         </div>
     </nav>
 
@@ -118,7 +138,9 @@
     <div style="max-width: 1200px; margin: 0 auto 60px; padding: 0 20px;">
         <div style="border: 1px solid rgba(0,0,0,0.08); border-radius: 18px; padding: clamp(10px, 3vw, 25px); background: white; box-shadow: 0 10px 30px rgba(0,0,0,0.06);">
             <div style="margin-bottom: 20px; font-weight: 800; font-size: 22px; color: var(--primary-blue);">Conference Schedule</div>
+            
             <div id="table_div" class="fpde-table-wrap">Loading schedule...</div>
+            
             <div id="mobile-list-container">Loading mobile view...</div>
         </div>
     </div>
@@ -202,6 +224,7 @@
 
         window.addEventListener("resize", renderAll);
         
+        // Skrypt skalujący przycisk
         (function () {
             const stage = document.getElementById('fpde-stage');
             const inner = document.getElementById('fpde-inner');
